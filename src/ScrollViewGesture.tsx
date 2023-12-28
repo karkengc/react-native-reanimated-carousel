@@ -78,7 +78,7 @@ const IScrollViewGesture: React.FC<PropsWithChildren<Props>> = (props) => {
     "worklet";
 
     if (!infinite && !overscrollEnabled) {
-      const { width: containerWidth = 0 } = measure(containerRef);
+      const { width: containerWidth = 0 } = measure(containerRef) || {};
 
       // If the item's total width is less than the container's width, then there is no need to scroll.
       if (dataLength * size < containerWidth)
