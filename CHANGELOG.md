@@ -1,5 +1,11 @@
 # react-native-reanimated-carousel
 
+## 3.5.3
+
+### Minor Changes
+
+-   26b2393: add `onSnapToItem` call during component mount (adding version to fix tag issue)
+
 ## 3.5.2
 
 ### Minor Changes
