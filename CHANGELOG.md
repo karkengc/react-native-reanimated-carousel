@@ -4,7 +4,7 @@
 
 ### Minor Changes
 
--   3e64f31: add `onSnapToItem` call during component mount
+-   26b2393: add `onSnapToItem` call during component mount
 
 ## 3.5.1
 
