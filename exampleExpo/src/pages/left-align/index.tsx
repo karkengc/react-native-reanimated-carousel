@@ -14,6 +14,9 @@ function Index() {
   const [isFast, setIsFast] = React.useState(false);
   const [isAutoPlay, setIsAutoPlay] = React.useState(false);
   const [isPagingEnabled, setIsPagingEnabled] = React.useState(true);
+  const [currentIndex, setCurrentIndex] = React.useState(0);
+  const [loop, setLoop] = React.useState(true);
+  const [justifyContent, setJustifyContent] = React.useState<"center" | "flex-start">("flex-start");
   const ref = React.useRef<ICarouselInstance>(null);
 
   const baseOptions = {
@@ -26,9 +29,9 @@ function Index() {
     <View style={{ flex: 1 }}>
       <Carousel
         {...baseOptions}
-        loop={false}
+        loop={loop}
         ref={ref}
-        style={{ width: "100%" }}
+        style={{ width: "100%", justifyContent }}
         autoPlay={isAutoPlay}
         autoPlayInterval={isFast ? 100 : 2000}
         data={data}
@@ -39,7 +42,29 @@ function Index() {
             <SBItem key={index} index={index} />
           </View>
         )}
+        onProgressChange={(_, absoluteProgress) => {
+          setCurrentIndex(Math.round(absoluteProgress));
+        }}
       />
+      <SButton
+        onPress={undefined}
+      >
+        {`Current index: ${currentIndex}`}
+      </SButton>
+      <SButton
+        onPress={() => {
+          setJustifyContent(justifyContent === "center" ? "flex-start" : "center");
+        }}
+      >
+        {`Justify content: ${justifyContent}`}
+      </SButton>
+      <SButton
+        onPress={() => {
+          setLoop(!loop);
+        }}
+      >
+        {`Loop: ${String(loop)}`}
+      </SButton>
       <SButton
         onPress={() => {
           setIsFast(!isFast);
