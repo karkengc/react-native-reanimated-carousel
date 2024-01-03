@@ -1,5 +1,14 @@
 # react-native-reanimated-carousel
 
+## 3.5.5
+
+-   d75c7ab: fix `onProgressChange` delayed value update after exceeding data lenght on loop (update version number)
+
+## 3.5.4
+
+-   d75c7ab: fix `onProgressChange` delayed value update after exceeding data lenght on loop
+
+
 ## 3.5.3
 
 ### Minor Changes
